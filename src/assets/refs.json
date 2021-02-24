@@ -11,6 +11,33 @@
         "Print/from UofA database": "<p><strong>Required information and layout</strong></p><div class='example'><p>Author’s family name, Initial(s) year of publication, ‘Title in single quotes’, <em>Journal Title in Italics</em>, vol. ##, (volume number) no. #, (issue number) pp. #-# (page numbers the article covers).</p></div> <p><strong>Reference list</strong></p><div class='example'><p>Habel, C 2009, 'Academic self-efficacy in ALL: capacity-building through self-belief', <em>Journal of Academic Language and Learning</em>, vol. 3, no. 2, pp. 94-104.</p></div><p><strong>In text</strong></p> <p><span class='textExample'>(Habel 2009)</span></p><p>This applies to both print articles and electronic articles accessed via a Library subscription. It is no longer necessary to include information such as “Online”, a URL, or a database name. This is because in many subjects electronic articles are the norm; any URL provided for a library-accessed database will include the University Library proxy and will not help your reader access the article; and the contents of databases can change.</p>",
 
 
-        "Notes": "<p>D</p>"
+        "From web (freely available from an e-journal's website": "<p>D</p>",
+        "With DOI (Digital Object Identifier":"<p>E</p>",
+        "In press/advance online publication":"",
+        "Two authors":"",
+        "Three authors":"",
+        "Four or more authors":""
     }]
-}]
+},{
+    "ID": "Books",
+    "sections":[{
+        "Print":"",
+        "E-Book (from web)":"",
+        "Two or three authors":"",
+        "Four or more authors":"",
+        "Book chapter in edited book":"",
+        "Book with an edition number":"",
+        "Book with no author":"",
+        "Book with a volume number":"",
+        "Written in a foreign language":"",
+        "Translated from a foreign language":""
+    }]
+}, {
+    "ID":"Conference Publications",
+    "sections":[{
+        "Conference paper published in edited book of proceedings (in print or accessed from library database)":"",
+        "Conference paper published online":"",
+        "Conference presentation (unpublished)":""
+    }]
+}
+]

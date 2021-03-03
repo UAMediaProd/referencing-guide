@@ -39,5 +39,64 @@
         "Conference paper published online":"",
         "Conference presentation (unpublished)":""
     }]
+}, {
+    "ID": "Newspaper or magazine article",
+    "sections":[{
+        "Print":"",
+        "Online":"",
+        "No author":""
+    }]
+}, {
+    "ID": "Data set",
+    "sections":[{
+        "With DOI":"",
+        "No DOI":""
+    }]
+}, {
+    "ID": "Webpage",
+    "sections":[{
+        "Webpage":""
+    }]
+},{
+    "ID": "Social media",
+    "sections":[{
+        "Blog":"",
+        "Blog post":"",
+        "Facebook post":"",
+        "Twitter":""
+    }]
+}, {
+    "ID": "Audiovisual",
+    "sections":[{
+        "Podcast":"",
+        "Radio programme":"",
+        "YouTube":"",
+        "Television broadcast":"",
+        "Video, film, DVD":""
+    }]
+}, {
+    "ID": "Image",
+    "sections":[{
+        "Artwork":"",
+        "Picture or graph":""
+    }]
+}, {
+    "ID": "Reference work",
+    "sections":[{
+        "Dictionary":"",
+        "Encyclopedia entry":""
+    }]
+}, {
+    "ID": "Other reference types",
+    "sections":[{
+        "Australian Bureau of Statistics":"",
+        "Emails, phone conversation, letters, interviews":"",
+        "Lecture":"",
+        "Map":"",
+        "Patent":"",
+        "PowerPoint":"",
+        "Report":"",
+        "Thesis":""
+    }]
 }
 ]

@@ -21,7 +21,7 @@
       <div v-for="(refSection, index) in level1Select.sections"
         v-bind:key="index">
         <!-- sub-heading -->
-        <div>
+       
           
             <div
               v-for="(value, key) in refSection"
@@ -33,7 +33,7 @@
               {{ key }}
             </div>
          
-        </div>
+      
       </div>
 
         <!-- show things -->
@@ -116,7 +116,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 10em;
+  margin-top: 5em;
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;

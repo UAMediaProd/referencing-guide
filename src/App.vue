@@ -67,24 +67,18 @@ export default {
   mounted: function () {
     this.refList = REFS;
     let refs = this.refList;
-    console.log(refs);
+
     for (var ref in refs) {
-      console.log(refs[ref]);
+
       var jsonObj = refs[ref].sections[0];
 
-      console.log(refs[ref].ID);
-
-      for (var key in jsonObj) {
-        console.log("Section: " + key);
-        console.log("Content: " + jsonObj[key]);
-      }
     }
   },
   methods: {
     chooseLevelOne(num) {
-      console.log("Column 1: " + num);
+
       this.level1Select = this.refList[num];
-      console.log(this.level1Select);
+     
       this.selected = num;
       this.selected2 = null;
       this.level2Select = null;
@@ -94,10 +88,9 @@ export default {
       let that = this;
       // setTimeout to delay rendering, allowing the transition to trigger!
       setTimeout(() => {
-         console.log("Column 2: " + item);
+   
       let jsonObj = that.level1Select.sections[0];
-      console.log(jsonObj);
-      console.log(jsonObj[item]);
+
       that.level2Select = jsonObj[item];
       that.selected2 = item;
       },20);

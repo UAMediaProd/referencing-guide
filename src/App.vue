@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="contain">
-      <div class="col" style="background: #ddd; max-width: 20%;">
-          <div style="background: #aaa;"><h2>Item type</h2></div>
+      <div class="col">
+          <div><h2>Item type</h2></div>
           <!-- main headings -->
           <div
             v-for="(ref, ind) in refList"
@@ -16,8 +16,8 @@
         
       </div>
 
-      <div class="col" style="background: #eee; max-width: 20%;">
-        <div style="background: #ccc;"><h2>Item sub-type</h2></div>
+      <div class="col">
+        <div><h2>Item sub-type</h2></div>
       <div v-for="(refSection, index) in level1Select.sections"
         v-bind:key="index">
         <!-- sub-heading -->
@@ -26,7 +26,7 @@
             <div
               v-for="(value, key) in refSection"
               v-bind:key="value"
-              class="butts"
+              class="butts col2"
               @click="chooseLevelTwo(key)"
               :class="[selected2 == key ? 'activated' : '']"
             >
@@ -108,11 +108,13 @@ export default {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #303030;
   margin-top: 5em;
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;
+  font-size: 1em;
+  line-height: 1.7;
 }
 
 .contain {
@@ -126,8 +128,9 @@ export default {
 
 .col {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  flex-basis: 0;
+  flex-basis: 20%;
   flex-grow: 1;
   /* background: black; */
 }
@@ -151,18 +154,48 @@ export default {
 }
 
 .butts {
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  padding: 0.5em;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    font-family: inherit;
+    padding: 1em 1.5em;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: all .25s ease-out,color .25s ease-out;
+    font-size: .9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: #005a9c;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    max-width: 80%;
+  
+}
+
+.col2 {
+  border: 1px solid #000;
+    color: #000;
+    background: none;
 }
 
 .butts:hover {
-  background: #aaa;
+  background: #004d85;
+}
+
+.col2:hover {
+  border-color: #8a8a8a;
+  background: none;
+  color: #000;
 }
 
 .activated {
-  background: black;
+  background: #102535;
+  color: white;
+}
 
+.activated:hover {
+  background: #102535;
   color: white;
 }
 

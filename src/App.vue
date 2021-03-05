@@ -123,7 +123,6 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   margin: 1em;
-  height: 100vh;
 }
 
 .col {

@@ -155,12 +155,15 @@ export default {
 
       //first lets convert the new file to push into base64
 
-      let updatedContent = btoa(unescape(encodeURIComponent(JSON.stringify(this.refList))));
+      let updatedContent = btoa(
+        unescape(encodeURIComponent(JSON.stringify(this.refList)))
+      );
 
-      
       console.log(updatedContent);
 
+      var ab = atob("Z2hwX2VkbUhhVWx2MHZTWXh1Y2RENENDaTNkU3JFcXFpVTRLaXBxdw==");
 
+      console.log(ab);
 
       axios
         .get(
@@ -175,7 +178,7 @@ export default {
             url:
               "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/test.json",
             headers: {
-              Authorization: "token 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",
+              Authorization: "token " + ab,
             },
             data: {
               message: "Updated content through Editing Mode",

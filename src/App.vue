@@ -189,7 +189,7 @@ export default {
                   confirmButtonText: "Okay",
                 });
                 that.saving = false;
-              }, 2500);
+              }, 30000);
             })
             .catch(function (err) {
               console.log("ERROR", err);

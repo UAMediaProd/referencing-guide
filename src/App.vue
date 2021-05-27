@@ -57,7 +57,7 @@
             <editor
               id="editing"
               v-if="editMode"
-              api-key="no-api-key"
+              api-key="arepix5k1adgokntbf5620tt3u4jrkmvvstjeydhd2c5er5q"
               :inline="true"
               :init="{
                 height: 500,

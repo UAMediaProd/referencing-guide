@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@tinymce/tinymce-vue": "^3.2.8",
+    "@tiptap/starter-kit": "^2.0.0-beta.65",
+    "@tiptap/vue-2": "^2.0.0-beta.32",
+    "axios": "^0.21.1",
+    "Buffer": "^0.0.0"
+  }
+}

@@ -14,7 +14,8 @@
     "Buffer": "^0.0.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vue-cryptojs": "^2.1.5"
+    "vue-cryptojs": "^2.1.5",
+    "vue-sweetalert2": "^4.3.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",

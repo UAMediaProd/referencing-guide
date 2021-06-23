@@ -330,6 +330,15 @@ a {
   .breadcrumbs {
     display: inline-block;
   }
+
+  .wrapper, .contain {
+    margin: 0;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 100% !important;
+  }
 }
 
 .example {

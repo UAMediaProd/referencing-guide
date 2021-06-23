@@ -1,5 +1,8 @@
 <template>
+
   <div id="app">
+  <div class="headerbar"><div class="wrapper"><img src="./assets/uoa-logo.png" width="120"></div></div>
+  <div class="secondarybar"><div class="wrapper"> <a href="https://www.adelaide.edu.au/library/">← Back to library</a></div></div>
     <div class="adx-direction-warning" v-if="editMode">
       <h5>Warning!</h5>
       <p>
@@ -8,6 +11,8 @@
         <em>Change the content that gets shown to users!</em>
       </p>
     </div>
+
+    <div class="wrapper">
     <div class="contain">
       <div class="col">
         <div><h2>Item type</h2></div>
@@ -45,7 +50,7 @@
         <!-- show things -->
       </div>
 
-      <div class="col">
+      <div class="col contentCol">
         <transition name="fade">
           <div
             v-if="level2Select"
@@ -87,6 +92,18 @@
         </button>
       </div>
     </div>
+  </div>
+
+
+  <div class="footer">
+    
+    <div class="wrapper">
+    <p>&copy; The University of Adelaide</p>
+    <img src="./assets/uoa-logo.png" width="220" style="float:right;">
+    </div>
+
+    </div>
+
   </div>
 </template>
 
@@ -204,17 +221,53 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&display=swap");
 
+body {
+  margin: 0;
+}
+
 #app {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #303030;
-  margin-top: 5em;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 1em;
   line-height: 1.7;
+}
+
+.headerbar {
+  background: #102535;
+  margin: 0;
+  min-height: 30px;
+  padding: 1em;
+}
+
+.secondarybar {
+  background:#005a9c;
+  margin: 0;
+  min-height: 20px;
+  padding: 1em;
+  margin-bottom: 3em;
+}
+
+.secondarybar a {
+  color: #fff;
+  text-decoration: none;
+
+}
+
+.wrapper {
+   max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+
+.footer {
+  background: #102535;
+  margin: 0;
+  color: white;
+  min-height: 150px;
+  padding-top: 1em;
 }
 
 .contain {
@@ -223,6 +276,9 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   margin: 1em;
+  min-height: 100vh;
+  
+  
 }
 
 .col {
@@ -231,24 +287,31 @@ export default {
   flex-direction: column;
   flex-basis: 20%;
   flex-grow: 1;
-  /* background: black; */
+  background: #f5f5f5;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+.contentCol {
+  background: none;
 }
 
 .example {
-  background: #efefef;
-  padding: 1em 1em 1em 2em;
-  border-radius: 5px;
+  background: #ececec;
+  padding: 2em 2em 2em 3em;
+  border-radius: 3px;
   line-height: 1.5;
-  font-family: "Crimson Text", serif;
-  font-size: 1.2em;
+  font-family: "Georgia", serif;
+  font-size: 1em;
 }
 
 .textExample {
-  background: #efefef;
-  font-family: "Crimson Text", serif;
-  font-size: 1.2em;
-  padding: 0.1em;
-  border-radius: 5px;
+  background: #ececec;
+  font-family: "Georgia", serif;
+  font-size: 1em;
+  padding: 0.3em;
+  border-radius: 3px;
+
 }
 
 .butts {
@@ -267,7 +330,7 @@ export default {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  max-width: 80%;
+  /* max-width: 80%; */
 }
 
 .col2 {
@@ -576,4 +639,5 @@ div.adx-direction-correct > * {
   max-width: 100%;
   margin-top: 1em;
 }
+
 </style>

@@ -1,8 +1,13 @@
 <template>
-
   <div id="app">
-  <div class="headerbar"><div class="wrapper"><img src="./assets/uoa-logo.png" width="120"></div></div>
-  <div class="secondarybar"><div class="wrapper"> <a href="https://www.adelaide.edu.au/library/">← Back to library</a></div></div>
+    <div class="headerbar">
+      <div class="wrapper"><img src="./assets/uoa-logo.png" width="120" /></div>
+    </div>
+    <div class="secondarybar">
+      <div class="wrapper">
+        <a href="https://www.adelaide.edu.au/library/">← Back to library</a>
+      </div>
+    </div>
     <div class="adx-direction-warning" v-if="editMode">
       <h5>Warning!</h5>
       <p>
@@ -13,97 +18,102 @@
     </div>
 
     <div class="wrapper">
-    <div class="contain">
-      <div class="col">
-        <div><h2>Item type</h2></div>
-        <!-- main headings -->
-        <div
-          v-for="(ref, ind) in refList"
-          v-bind:key="ref.ID"
-          class="butts"
-          @click="chooseLevelOne(ind)"
-          :class="[selected == ind ? 'activated' : '']"
-        >
-          {{ ref.ID }}
-        </div>
-      </div>
-
-      <div class="col">
-        <div><h2>Item sub-type</h2></div>
-        <div
-          v-for="(refSection, index) in level1Select.sections"
-          v-bind:key="index"
-        >
-          <!-- sub-heading -->
-
+      <div class="contain">
+        <div class="col" :class="[selected2 ? 'itemCol' : '']">
+          <div><h2>Item type</h2></div>
+          <!-- main headings -->
           <div
-            v-for="(value, key) in refSection"
-            v-bind:key="value"
-            class="butts col2"
-            @click="chooseLevelTwo(key)"
-            :class="[selected2 == key ? 'activated' : '']"
+            v-for="(ref, ind) in refList"
+            v-bind:key="ref.ID"
+            class="butts"
+            @click="chooseLevelOne(ind)"
+            :class="[selected == ind ? 'activated' : '']"
           >
-            {{ key }}
+            {{ ref.ID }}
           </div>
         </div>
 
-        <!-- show things -->
-      </div>
-
-      <div class="col contentCol">
-        <transition name="fade">
+        <div class="col" :class="[selected2 ? 'subCol' : '']">
+          <div><h2>Item sub-type</h2></div>
           <div
-            v-if="level2Select"
-            class="content"
-            v-bind:class="[editMode ? 'editing' : '']"
+            v-for="(refSection, index) in level1Select.sections"
+            v-bind:key="index"
           >
-            <div v-if="!editMode" class="refInfo" v-html="level2Select"></div>
+            <!-- sub-heading -->
 
-            <editor
-              id="editing"
-              v-if="editMode"
-              api-key="arepix5k1adgokntbf5620tt3u4jrkmvvstjeydhd2c5er5q"
-              :inline="true"
-              :init="{
-                height: 500,
-                menubar: true,
-                plugins: [
-                  'advlist autolink lists link image charmap print preview anchor',
-                  'searchreplace visualblocks code fullscreen',
-                  'insertdatetime media table paste code help wordcount',
-                ],
-                toolbar:
-                  'undo redo | formatselect | bold italic backcolor | \
+            <div
+              v-for="(value, key) in refSection"
+              v-bind:key="value"
+              class="butts col2"
+              @click="chooseLevelTwo(key)"
+              :class="[selected2 == key ? 'activated' : '']"
+            >
+              {{ key }}
+            </div>
+          </div>
+
+          <!-- show things -->
+        </div>
+        <div class="col contentCol">
+          <transition name="fade">
+            <div
+              v-if="level2Select"
+              class="content"
+              v-bind:class="[editMode ? 'editing' : '']"
+            >
+              <div class="breadcrumbs">
+                <p v-if="level2Select">
+                  <button class='butts col2' @click="reset()">Choose another type/sub-type</button>
+                </p>
+
+                <p>
+                  <strong>{{ level1Select.ID }} / {{ selected2 }}</strong>
+                </p>
+              </div>
+
+              <div v-if="!editMode" class="refInfo" v-html="level2Select"></div>
+
+              <editor
+                id="editing"
+                v-if="editMode"
+                api-key="arepix5k1adgokntbf5620tt3u4jrkmvvstjeydhd2c5er5q"
+                :inline="true"
+                :init="{
+                  height: 500,
+                  menubar: true,
+                  plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table paste code help wordcount',
+                  ],
+                  toolbar:
+                    'undo redo | formatselect | bold italic backcolor | \
            alignleft aligncenter alignright alignjustify | \
            bullist numlist outdent indent | removeformat | help',
-              }"
-              v-model="level2Select"
-            />
-          </div>
-        </transition>
-        <button
-          v-if="editMode"
-          class="butts edit"
-          @click="saveChanges"
-          :class="[saving ? 'saving' : '']"
-        >
-          Save changes
-          <div class="loader">Loading...</div>
-        </button>
+                }"
+                v-model="level2Select"
+              />
+            </div>
+          </transition>
+          <button
+            v-if="editMode"
+            class="butts edit"
+            @click="saveChanges"
+            :class="[saving ? 'saving' : '']"
+          >
+            Save changes
+            <div class="loader">Loading...</div>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-
-  <div class="footer">
-    
-    <div class="wrapper">
-    <p>&copy; The University of Adelaide</p>
-    <img src="./assets/uoa-logo.png" width="220" style="float:right;">
+    <div class="footer">
+      <div class="wrapper">
+        <p>&copy; The University of Adelaide</p>
+        <img src="./assets/uoa-logo.png" width="220" style="float: right" />
+      </div>
     </div>
-
-    </div>
-
   </div>
 </template>
 
@@ -111,11 +121,14 @@
 import REFS from "./assets/test.json";
 import Editor from "@tinymce/tinymce-vue";
 import axios from "axios";
+import { showAt, hideAt } from "vue-breakpoints";
 
 export default {
   name: "App",
   components: {
     Editor,
+    hideAt,
+    showAt,
   },
   data: function () {
     return {
@@ -156,14 +169,20 @@ export default {
 
         that.level2Select = jsonObj[item];
         that.selected2 = item;
+        console.log(that.selected2);
       }, 20);
+    },
+
+    reset() {
+      console.log("Resetting!");
+      this.selected2 = null;
+      this.level2Select = "";
     },
 
     saveChanges() {
       this.saving = true;
-      this.refList[this.selected].sections[0][
-        this.selected2
-      ] = this.level2Select;
+      this.refList[this.selected].sections[0][this.selected2] =
+        this.level2Select;
 
       let updatedContent = btoa(
         unescape(encodeURIComponent(JSON.stringify(this.refList)))
@@ -181,8 +200,7 @@ export default {
 
           axios({
             method: "put",
-            url:
-              "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/test.json",
+            url: "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/test.json",
             headers: {
               Authorization: "token " + ab,
             },
@@ -200,8 +218,7 @@ export default {
                 //show success message
                 that.$swal({
                   title: "Save complete!",
-                  text:
-                    "Your changes have been saved. It may take just a sec to show up in the original page.",
+                  text: "Your changes have been saved. It may take just a sec to show up in the original page.",
                   icon: "success",
                   confirmButtonText: "Okay",
                 });
@@ -242,7 +259,7 @@ body {
 }
 
 .secondarybar {
-  background:#005a9c;
+  background: #005a9c;
   margin: 0;
   min-height: 20px;
   padding: 1em;
@@ -252,14 +269,16 @@ body {
 .secondarybar a {
   color: #fff;
   text-decoration: none;
+}
 
+a {
+  color: #005a9c;
 }
 
 .wrapper {
-   max-width: 80%;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
- 
 }
 
 .footer {
@@ -277,8 +296,6 @@ body {
   width: 100%;
   margin: 1em;
   min-height: 100vh;
-  
-  
 }
 
 .col {
@@ -296,6 +313,25 @@ body {
   background: none;
 }
 
+.breadcrumbs {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .contentCol {
+    flex-basis: 100%;
+  }
+
+  .itemCol,
+  .subCol {
+    display: none;
+  }
+
+  .breadcrumbs {
+    display: inline-block;
+  }
+}
+
 .example {
   background: #ececec;
   padding: 2em 2em 2em 3em;
@@ -311,7 +347,6 @@ body {
   font-size: 1em;
   padding: 0.3em;
   border-radius: 3px;
-
 }
 
 .butts {
@@ -639,5 +674,4 @@ div.adx-direction-correct > * {
   max-width: 100%;
   margin-top: 1em;
 }
-
 </style>

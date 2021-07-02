@@ -54,7 +54,7 @@
 
           <!-- show things -->
         </div>
-        <div class="col contentCol">
+        <div class="col contentCol" :class="[level2Select ? '' : 'showContent' ]">
           <transition name="fade">
             <div
               v-if="level2Select"
@@ -286,7 +286,7 @@ a {
   margin: 0;
   color: white;
   min-height: 150px;
-  padding-top: 1em;
+  padding: 1em;
 }
 
 .contain {
@@ -320,6 +320,14 @@ a {
 @media (max-width: 980px) {
   .contentCol {
     flex-basis: 100%;
+  }
+
+  .showContent {
+    display: none;
+  }
+
+  .contain {
+    flex-wrap: nowrap;
   }
 
   .itemCol,

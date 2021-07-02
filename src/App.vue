@@ -154,6 +154,7 @@ export default {
   },
   methods: {
     chooseLevelOne(num) {
+      window.scrollTo(0, 0);
       this.level1Select = this.refList[num];
 
       this.selected = num;
@@ -161,6 +162,7 @@ export default {
       this.level2Select = null;
     },
     chooseLevelTwo(item) {
+      window.scrollTo(0, 0);
       this.level2Select = null;
       let that = this;
       // setTimeout to delay rendering, allowing the transition to trigger!
@@ -174,6 +176,7 @@ export default {
     },
 
     reset() {
+      window.scrollTo(0, 0);
       console.log("Resetting!");
       this.selected2 = null;
       this.level2Select = "";
@@ -240,6 +243,10 @@ export default {
 
 body {
   margin: 0;
+}
+
+h2 {
+  font-size: 1.2em;
 }
 
 #app {

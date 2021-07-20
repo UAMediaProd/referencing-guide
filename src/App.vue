@@ -5,7 +5,7 @@
     </div>
     <div class="secondarybar">
       <div class="wrapper">
-        <a href="https://www.adelaide.edu.au/library/">← Back to library</a>
+        <a href="https://www.adelaide.edu.au/library/referencing-support">← Back to library</a>
       </div>
     </div>
     <div class="adx-direction-warning" v-if="editMode">

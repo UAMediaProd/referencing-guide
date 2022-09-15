@@ -6,6 +6,7 @@
     <div class="secondarybar">
       <div class="wrapper">
         <a href="https://www.adelaide.edu.au/library/referencing-support">← Back to library</a>
+        <a style="float: right;" target="_blank" href="https://www.adelaide.edu.au/library/ua/media/4063/library-qrg-harvard-referencing.pdf">Download PDF version ↓</a>
       </div>
     </div>
     <div class="adx-direction-warning" v-if="editMode">

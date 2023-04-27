@@ -6,7 +6,7 @@
     <div class="secondarybar">
       <div class="wrapper">
         <a href="https://www.adelaide.edu.au/library/referencing-support">← Back to library</a>
-        <a style="float: right;" target="_blank" href="https://www.adelaide.edu.au/library/ua/media/4063/library-qrg-harvard-referencing.pdf">Download PDF version ↓</a>
+        <a style="float: right;" target="_blank" href="https://www.adelaide.edu.au/library/ua/media/4332/library-qrg-harvard-referencing.pdf">Download PDF version ↓</a>
       </div>
     </div>
     <div class="adx-direction-warning" v-if="editMode">
@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import REFS from "./assets/test.json";
+import REFS from "./assets/content.json";
 import Editor from "@tinymce/tinymce-vue";
 import axios from "axios";
 import { showAt, hideAt } from "vue-breakpoints";
@@ -147,8 +147,8 @@ export default {
     this.refList = REFS;
 
     let urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("editing") && urlParams.get("editing") == "true") {
-      //this.editMode = true;
+    if (urlParams.has("KvMC5z") && urlParams.get("KvMC5z") == "true") {
+      this.editMode = true;
     } else {
       this.editMode = false;
     }
@@ -197,14 +197,14 @@ export default {
       var that = this;
       axios
         .get(
-          "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/test.json"
+          "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/content.json"
         )
         .then(function (res) {
           var fileBiz = res.data;
 
           axios({
             method: "put",
-            url: "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/test.json",
+            url: "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/content.json",
             headers: {
               Authorization: "token " + ab,
             },

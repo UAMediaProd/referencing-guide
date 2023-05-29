@@ -172,13 +172,11 @@ export default {
 
         that.level2Select = jsonObj[item];
         that.selected2 = item;
-        console.log(that.selected2);
       }, 20);
     },
 
     reset() {
       window.scrollTo(0, 0);
-      console.log("Resetting!");
       this.selected2 = null;
       this.level2Select = "";
     },

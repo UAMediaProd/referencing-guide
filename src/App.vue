@@ -120,17 +120,9 @@
 
 <script>
 import REFS from "./assets/content.json";
-import Editor from "@tinymce/tinymce-vue";
-import axios from "axios";
-import { showAt, hideAt } from "vue-breakpoints";
 
 export default {
   name: "App",
-  components: {
-    Editor,
-    hideAt,
-    showAt,
-  },
   data: function () {
     return {
       refList: [],
@@ -145,13 +137,6 @@ export default {
   },
   mounted: function () {
     this.refList = REFS;
-
-    let urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("KvMC5z") && urlParams.get("KvMC5z") == "true") {
-      this.editMode = true;
-    } else {
-      this.editMode = false;
-    }
   },
   methods: {
     chooseLevelOne(num) {
@@ -173,64 +158,6 @@ export default {
         that.level2Select = jsonObj[item];
         that.selected2 = item;
       }, 20);
-    },
-
-    reset() {
-      window.scrollTo(0, 0);
-      this.selected2 = null;
-      this.level2Select = "";
-    },
-
-    saveChanges() {
-      this.saving = true;
-      this.refList[this.selected].sections[0][this.selected2] =
-        this.level2Select;
-
-      let updatedContent = btoa(
-        unescape(encodeURIComponent(JSON.stringify(this.refList)))
-      );
-
-      var ab = atob("Z2hwX2VkbUhhVWx2MHZTWXh1Y2RENENDaTNkU3JFcXFpVTRLaXBxdw==");
-
-      var that = this;
-      axios
-        .get(
-          "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/content.json"
-        )
-        .then(function (res) {
-          var fileBiz = res.data;
-
-          axios({
-            method: "put",
-            url: "https://api.github.com/repos/UAMediaProd/referencing-guide/contents/src/assets/content.json",
-            headers: {
-              Authorization: "token " + ab,
-            },
-            data: {
-              message: "Updated content through Editing Mode",
-              content: updatedContent,
-              sha: fileBiz.sha,
-            },
-          })
-            .then(function (response) {
-              setTimeout(function () {
-                console.log("Success");
-                //add in stuff here to show a success!
-
-                //show success message
-                that.$swal({
-                  title: "Save complete!",
-                  text: "Your changes have been saved. It may take just a sec to show up in the original page.",
-                  icon: "success",
-                  confirmButtonText: "Okay",
-                });
-                that.saving = false;
-              }, 8000);
-            })
-            .catch(function (err) {
-              console.log("ERROR", err);
-            });
-        });
     },
   },
 };
@@ -684,17 +611,5 @@ div.adx-direction-correct > * {
   }
 }
 
-.saving .loader {
-  display: inherit;
-}
 
-.swal2-popup {
-  font-family: "Open Sans", sans-serif !important;
-}
-
-.edit {
-  width: 100%;
-  max-width: 100%;
-  margin-top: 1em;
-}
 </style>
